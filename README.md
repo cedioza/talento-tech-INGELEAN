@@ -6,6 +6,14 @@
 [![Mistral AI](https://img.shields.io/badge/Mistral%20AI-small-orange.svg)](https://mistral.ai/)
 [![SQLite](https://img.shields.io/badge/SQLite-3.0+-lightblue.svg)](https://sqlite.org/)
 
+
+##Participantes
+
+
+Estefany Romero.
+Cristian Dioza.
+Davin Chavarría
+  
 Sistema de chatbot inteligente híbrido para **INGE LEAN** que combina respuestas basadas en FAQs con Inteligencia Artificial (Mistral AI) para brindar soporte automatizado 24/7 a clientes y prospectos.
 
 ## 🎯 **Características Principales**
