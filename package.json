@@ -1,0 +1,21 @@
+{
+  "name": "inge-lean-chatbot",
+  "version": "1.0.0",
+  "description": "Chatbot inteligente para INGE LEAN con métricas y trazabilidad (Puerto 3001)",
+  "main": "backend/server.js",
+  "scripts": {
+    "dev": "concurrently \"npm run dev:backend\" \"npm run dev:frontend\"",
+    "dev:backend": "cd backend && npm run dev",
+    "dev:frontend": "cd frontend && npm run dev",
+    "build": "cd frontend && npm run build",
+    "start": "cd backend && npm start",
+    "install:all": "npm install && cd backend && npm install && cd ../frontend && npm install",
+    "test:api": "curl -f http://localhost:3001/health || echo 'Backend no disponible en puerto 3001'"
+  },
+  "keywords": ["chatbot", "vue", "express", "metrics", "inge-lean", "puerto-3001"],
+  "author": "INGE LEAN",
+  "license": "MIT",
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+} 

@@ -1,0 +1,56 @@
+version: '3.8'
+
+services:
+  # Backend API
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    ports:
+      - "3001:3001"
+    environment:
+      - NODE_ENV=production
+      - PORT=3001
+    volumes:
+      - ./backend/database:/app/database
+      - ./backend/exports:/app/exports
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:3001/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  # Frontend (opcional, servido por backend en producción)
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    ports:
+      - "80:80"
+    depends_on:
+      - backend
+    environment:
+      - VITE_API_URL=http://backend:3001/api
+    restart: unless-stopped
+
+  # Base de datos de respaldo (opcional)
+  db-backup:
+    image: alpine:latest
+    volumes:
+      - ./backend/database:/data
+      - ./backups:/backups
+    command: >
+      sh -c "
+        while true; do
+          cp /data/chatbot.db /backups/chatbot-$(date +%Y%m%d_%H%M%S).db
+          find /backups -name '*.db' -mtime +7 -delete
+          sleep 86400
+        done
+      "
+    restart: unless-stopped
+
+volumes:
+  database:
+  exports:
+  backups: 
