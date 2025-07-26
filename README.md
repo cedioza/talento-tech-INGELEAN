@@ -36,8 +36,31 @@ Sistema de chatbot inteligente híbrido para **INGE LEAN** que combina respuesta
 ## 🏗️ **Arquitectura del Sistema**
 
 ```
-<code_block_to_apply_changes_from>
+frontend/
+├── src/
+│   ├── views/
+│   │   ├── Home.vue           # 🏠 Página principal del chatbot
+│   │   ├── Dashboard.vue      # 📊 Panel de métricas
+│   │   ├── Requisitos.vue     # 📋 Documentación técnica
+│   │   ├── Testing.vue        # 🧪 Interface de pruebas
+│   │   └── IngeLeanHome.vue   # 🌐 Clon de ingelean.com
+│   ├── components/
+│   │   └── [Componentes Vue]
+│   ├── main.js                # ⚙️ Configuración de rutas
+│   └── style.css              # 🎨 Estilos globales
+├── vite.config.js             # ⚡ Configuración Vite
+├── tailwind.config.js         # 🎨 Configuración Tailwind
+└── package.json               # 📦 Dependencias frontend
 ```
+
+sequenceDiagram
+    participant U as 👤 Usuario
+    participant F as 🌐 Frontend
+    participant B as 🚀 Backend
+    participant H as 🔀 Híbrido
+    participant FAQ as 📋 FAQ
+    participant AI as 🤖 IA
+
 
 ## 🚀 **Tecnologías Utilizadas**
 
